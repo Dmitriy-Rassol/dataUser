@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    padding: 10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttons-block {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-gap: 2vw;
+}
+
+.user {
+    display: grid;
+    justify-content: start;
+    padding-left: 10px;
+}
+
+.data-list {
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    list-style: none;
+    background-color: cornflowerblue;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: 50px;
+    z-index: 1;
+}
+
+.data-list::before {
+    content: 'Нет пользователей';
+    position: absolute;
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgb(211, 248, 248);
+    z-index: 0;
+}
+
+.data-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    background-color: cornflowerblue;
+    font-size: 20px;
+    width: 100%;
+    height: auto;
+    font-weight: 700;
+    padding: 10px;
+    z-index: 1;
+}
+
+.btn {
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(81, 204, 204);
+}
+
+.btn-delete {
+    background-color: transparent;
+    border: none;
+    background-image: url("../img/trash.png");
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+    padding: 0 30px 0 10px;
+}
+
+.btn-delete:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
