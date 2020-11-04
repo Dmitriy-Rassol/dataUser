@@ -7,7 +7,6 @@ const user = document.querySelector('.user'),
     dataList = document.querySelector('.data-list');
 
 let data = JSON.parse(localStorage.getItem('todoData')) || [];
-let flag = false;
 let months =[
     'Января',
     'Февраля',
@@ -91,17 +90,16 @@ function checkIn () {
     render();
 }
 function logIn() {
-    let login = prompt('Введите логин', '');
-        let password = prompt('введите пароль', '');
+    let login = prompt('Введите логин').trim();
+        let password = prompt('введите пароль').trim();
         data.find((item, index) => {           
             if ( item.login === login && item.password === password) {
                 user.textContent = 'Привет, ' + item.name;
-                localStorage.setItem('userName', user.textContent);
                 btnLogIn.classList.add('hidden');
                 btnLogOut.classList.remove('hidden');
                 
                 return;
-                } else if (index < data.length-1) {
+                } else if (index === data.length-1) {
                     alert('Неверный логин или пароль');
                 }
             }
@@ -111,7 +109,6 @@ function logIn() {
 
 function logOut() {
     user.textContent = 'Привет, Аноним ';
-    localStorage.setItem('userName', user.textContent);
     btnLogIn.classList.remove('hidden');
     btnLogOut.classList.add('hidden');
     render();
